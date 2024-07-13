@@ -99,6 +99,9 @@ detail, but in a lot of  cases it makes sense to let Observers retrieve the data
 #### 4. Version-4: (solution-2, pull model of observer pattern):
 ![pull-type-observer-pattern](images/solution-2-pull-type-observer-pattern.png)
 
+***Code***:
+[Link to code for solution 2](pull-type-observer-pattern)
+
 ***Changes***:
 
 1. Change in parameters:

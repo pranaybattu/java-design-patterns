@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4adf432-b3d3-42a4-b1c4-833476834a20" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ObserverPattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/ObserverPattern.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/design-principles-used.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/design-principles-used.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
