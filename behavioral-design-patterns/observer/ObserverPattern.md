@@ -39,7 +39,7 @@ Observer <|-- ConcreteObserver : "is-a" (inheritance)
 ConcreteSubject o--> Observer : "has-a" (association)
 @enduml
 ```
-![Design Principles](images/design-principles-used.png)
+![Class diagram](images/class-diagram-observer.png)
 
 #### 4. Design Principles
 
@@ -79,3 +79,62 @@ ConcreteSubject o--> Observer : "has-a" (association)
 
 **Below are the issues in code with version 2:**
 ![issues-with-v2](images/issues-with-v2.png)
+
+#### 3. Version-3: (solution-1, push model of observer pattern):
+![push-type-observer-pattern](images/solution-1-push-type-observer-pattern.png)
+
+***Code***:
+[Link to code for solution 1](push-type-observer-pattern)
+
+- When should we implement this: If we are sure, we are going to send all the available information to observers and 
+it is not going to change in future.
+
+**Problems**:
+- In our current Weather Station design, we are pushing all three pieces of  data
+to the update() method in the displays, even if  the displays don’t need all these values. 
+- That’s okay, but what if  Weather-O-Rama adds another data value later, like wind speed? Then we’ll have to change all the update() methods in all the displays, even if  most of  them don’t need or want the wind speed data.
+- Now, whether we pull or push the data to the Observer is an implementation
+detail, but in a lot of  cases it makes sense to let Observers retrieve the data they need rather than passing more and more data to them through the update() method. After all, over time, this is an area that may change and grow unwieldy.
+
+#### 4. Version-4: (solution-2, pull model of observer pattern):
+![pull-type-observer-pattern](images/solution-2-pull-type-observer-pattern.png)
+
+***Changes***:
+
+1. Change in parameters:
+   - push type:
+    ```
+    public interface Observer {
+        void update(float temp, float humidity, float pressure);
+    }
+    ```
+    - pull type: (update)
+    ```
+    public interface Observer {
+        void update(); // changed this for pull type
+    }
+    ```
+2. Update implementations of observer:
+   - push type:
+   ```
+   @Override
+    public void update(float temperature, float humidity, float pressure) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        display();
+    }
+   ```
+   - pull type: (update)
+   ```
+   @Override
+    public void update() { // changed this for pull type, fetching only required data
+        this.temperature = ((WeatherData) weatherData).getTemperature();
+        this.humidity = ((WeatherData) weatherData).getHumidity();
+        display();
+    }
+   ```
+
+
+### Key Notes:
+
+![Design Principles](images/design-principles-used.png)
